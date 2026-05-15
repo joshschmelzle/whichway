@@ -5,8 +5,7 @@ VPN, proxy, and monitoring tools (Little Snitch, Proxifier, Zscaler, Atmos
 Axis, Tailscale, plus native interfaces).
 
 `whichway` answers: *given everything currently on this machine, where does
-traffic to X actually go?* It is a diagnostic tool, not a configuration tool —
-it never writes routes, never modifies pf, never installs anything.
+traffic to X actually go?* It is a diagnostic tool, not a configuration tool - it never writes routes, never modifies pf, never installs anything.
 
 ## Install
 
@@ -52,7 +51,7 @@ Verdict:
 
 The verdict is **IP-layer only**. Application-layer interceptors (Proxifier,
 Little Snitch per-app rules, browser proxy config) may override what the
-kernel routing table says. `whichway` is explicit about that — never treat
+kernel routing table says. `whichway` is explicit about that - never treat
 the verdict as authoritative.
 
 Color output respects `NO_COLOR`. Tracing/logs go to stderr; control via
@@ -70,7 +69,7 @@ prints to stderr:
 whichway serving at http://127.0.0.1:9999/?token=<random>
 ```
 
-The server binds `127.0.0.1` only — never `0.0.0.0`. If the port is taken it
+The server binds `127.0.0.1` only - never `0.0.0.0`. If the port is taken it
 errors out rather than picking another.
 
 Every `/api/*` request requires the random session token, supplied either as
@@ -92,10 +91,10 @@ for the privileged tabs.
 ifconfig, scutil --dns, scutil --nwi). Running with `sudo` additionally
 enables:
 
-* `sockets` — `lsof -i -P -n` per-process socket view.
-* `throughput` — `nettop -P -x -l 2 -J bytes_in,bytes_out,interface` one-shot
+* `sockets` - `lsof -i -P -n` per-process socket view.
+* `throughput` - `nettop -P -x -l 2 -J bytes_in,bytes_out,interface` one-shot
   sample.
-* `pf` — `pfctl -sr` rules and `pfctl -sa` anchors. Little Snitch and some
+* `pf` - `pfctl -sr` rules and `pfctl -sa` anchors. Little Snitch and some
   enterprise VPN clients install anchors here.
 
 If you don't run as root, those tabs/commands return a `requires root`
@@ -138,16 +137,16 @@ table.
 Matching `utunN` interfaces to the apps that own them is the most useful and
 most fragile thing whichway does. Detector priority:
 
-1. **Tailscale** — match `Self.TailscaleIPs` (from `tailscale status --json`)
+1. **Tailscale** - match `Self.TailscaleIPs` (from `tailscale status --json`)
    against utun addresses. Never the CGNAT range as a fallback; that
    false-positives.
-2. **Zscaler** — install path under `/Applications/Zscaler/` or
+2. **Zscaler** - install path under `/Applications/Zscaler/` or
    `/Library/Application Support/Zscaler` present *and* a Zscaler process
    running (anchored `pgrep -fl '^/Applications/Zscaler/'`). Then pick a
    utun whose MTU is 1400.
-3. **Atmos / Axis** — install path present and the agent process is running.
-4. **Generic IPSec/IKEv2** — `scutil --nc list` for named VPN configurations.
-5. **Unknown** — labeled `Unknown`, raw interface info kept.
+3. **Atmos / Axis** - install path present and the agent process is running.
+4. **Generic IPSec/IKEv2** - `scutil --nc list` for named VPN configurations.
+5. **Unknown** - labeled `Unknown`, raw interface info kept.
 
 Install path is the **primary signal**; running processes are **confirming
 evidence**. Missing tools just mean those rows are absent, never an error.
@@ -190,7 +189,7 @@ covers Tailscale + Zscaler-shaped + native `en0` simultaneously.
 
 ## Constraints worth knowing
 
-* Every shell-out has a timeout — 3s default, 5s for `nettop`, 8s for
+* Every shell-out has a timeout - 3s default, 5s for `nettop`, 8s for
   `lsof`. A timeout becomes a collector error, never a panic.
 * The web UI loads no remote resources. No CDN scripts, no Google fonts,
   no analytics.
@@ -207,4 +206,4 @@ persistence of collected data across runs.
 
 ## License
 
-MIT OR Apache-2.0.
+BSD-3-Clause. See `LICENSE` for the full text.
