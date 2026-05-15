@@ -1,0 +1,17 @@
+Network information
+
+IPv4 network interface information
+     en7 : flags      : 0x7 (IPv4,IPv6,DNS)
+           address    : 192.168.6.204
+           reach      : 0x00000002 (Reachable)
+
+   REACH : flags 0x00000002 (Reachable)
+
+IPv6 network interface information
+     en7 : flags      : 0x7 (IPv4,IPv6,DNS)
+           address    : 2001:470:8ad1:6:856:26bb:48f:4ca8
+           reach      : 0x00000002 (Reachable)
+
+   REACH : flags 0x00000002 (Reachable)
+
+Network interfaces: en7 utun6

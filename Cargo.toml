@@ -1,0 +1,60 @@
+[package]
+name = "whichway"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "macOS network route inspector for multi-VPN setups"
+license = "BSD-3"
+
+[lints.rust]
+unsafe_code = "deny"
+missing_debug_implementations = "warn"
+rust_2024_compatibility = { level = "warn", priority = -1 }
+unreachable_pub = "warn"
+
+[lints.clippy]
+# Baseline groups (lower priority so cherry-picked lints below win on conflict)
+pedantic = { level = "warn", priority = -1 }
+nursery  = { level = "warn", priority = -1 }
+
+# Restriction lints, cherry-picked (the group as a whole is harmful)
+unwrap_used         = "deny"
+expect_used         = "warn"
+panic               = "warn"
+indexing_slicing    = "warn"
+string_slice        = "warn"
+todo                = "deny"
+unimplemented       = "deny"
+dbg_macro           = "deny"
+print_stderr        = "allow"   # CLI tools legitimately print to stderr
+print_stdout        = "allow"   # CLI tools legitimately print to stdout
+
+# Pedantic lints that produce more noise than value
+module_name_repetitions = "allow"
+must_use_candidate      = "allow"
+missing_errors_doc      = "allow"
+# Conflicts with rust's `unreachable_pub`: that lint pushes us to
+# `pub(crate)` on items in private modules, which this lint then flags as
+# redundant. We keep `unreachable_pub` (rust) since it is more informative.
+redundant_pub_crate     = "allow"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["rt-multi-thread", "process", "time", "macros", "sync", "signal", "io-util"] }
+axum = "0.7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+include_dir = "0.7"
+tabled = "0.15"
+owo-colors = { version = "4", features = ["supports-colors"] }
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+rand = "0.8"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt"] }
+
+[profile.release]
+lto = "thin"
+strip = true

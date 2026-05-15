@@ -1,0 +1,64 @@
+/* whichway styles. Muted palette, monospace tables, no shadows/gradients. */
+:root {
+  --bg: #111213;
+  --fg: #d8d8d8;
+  --muted: #888;
+  --accent: #4ea1ff;
+  --warn: #d99000;
+  --err: #d05a5a;
+  --row: #1a1c1e;
+  --row-alt: #15171a;
+  --border: #2a2d31;
+  --badge-tailscale: #2f6f4f;
+  --badge-zscaler: #5a4a2f;
+  --badge-axis: #4a2f5a;
+  --badge-ipsec: #2f4a5a;
+  --badge-unknown: #4a4a4a;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--fg); margin: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; font-size: 13px; }
+header { display: flex; align-items: center; gap: 12px; padding: 8px 14px; border-bottom: 1px solid var(--border); }
+header h1 { margin: 0; font-size: 14px; letter-spacing: 0.5px; }
+header .controls { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+header input, header select, header button {
+  background: var(--row); color: var(--fg); border: 1px solid var(--border); padding: 4px 8px; font: inherit;
+}
+header input#lookup { width: 280px; }
+.muted { color: var(--muted); font-size: 12px; }
+.err { color: var(--err); font-size: 11px; margin-left: 8px; }
+
+.tabs { display: flex; gap: 1px; padding: 0 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+.tabs button { background: transparent; color: var(--muted); border: none; padding: 8px 12px; cursor: pointer; font: inherit; }
+.tabs button.active { color: var(--fg); border-bottom: 2px solid var(--accent); }
+
+main { padding: 10px 14px 40px; }
+.tab { display: none; }
+.tab.active { display: block; }
+.hidden { display: none; }
+
+h2 { font-size: 13px; margin: 14px 0 4px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+.filter { background: var(--row); color: var(--fg); border: 1px solid var(--border); padding: 3px 6px; width: 100%; max-width: 320px; margin-bottom: 4px; font: inherit; }
+
+table { width: 100%; border-collapse: collapse; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+thead th { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; background: var(--bg); position: sticky; top: 0; }
+thead th:hover { color: var(--accent); }
+tbody td { padding: 3px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+tbody tr:nth-child(even) { background: var(--row-alt); }
+tbody tr:nth-child(odd) { background: var(--row); }
+
+.badge { display: inline-block; padding: 1px 6px; border-radius: 2px; font-size: 11px; color: #fff; }
+.badge-Tailscale { background: var(--badge-tailscale); }
+.badge-Zscaler { background: var(--badge-zscaler); }
+.badge-Atmos { background: var(--badge-axis); }
+.badge-IPSec { background: var(--badge-ipsec); }
+.badge-Unknown { background: var(--badge-unknown); }
+.badge-Native { background: var(--badge-ipsec); }
+
+.card { background: var(--row); border: 1px solid var(--border); padding: 10px 12px; margin-bottom: 12px; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+.card .label { color: var(--muted); display: inline-block; width: 96px; }
+.card pre { margin: 6px 0 0; white-space: pre-wrap; }
+
+footer { padding: 10px 14px; border-top: 1px solid var(--border); }
+
+pre#pf-anchors, pre#pf-rules { font-family: ui-monospace, Menlo, monospace; font-size: 12px; background: var(--row); padding: 8px; border: 1px solid var(--border); white-space: pre-wrap; }

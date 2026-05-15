@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>whichway</title>
+  <!--TOKEN-->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>whichway</h1>
+    <span id="status" class="muted"></span>
+    <span id="priv" class="muted"></span>
+    <div class="controls">
+      <input id="lookup" type="text" placeholder="lookup: ip or hostname (enter)">
+      <button id="refresh">refresh</button>
+      <label>auto:
+        <select id="auto">
+          <option value="0" selected>off</option>
+          <option value="30">30s</option>
+          <option value="120">2min</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="summary" class="active">summary</button>
+    <button data-tab="sockets">sockets</button>
+    <button data-tab="throughput">throughput</button>
+    <button data-tab="pf">pf</button>
+  </nav>
+
+  <main>
+    <section id="lookup-card" class="hidden card"></section>
+
+    <section id="tab-summary" class="tab active">
+      <h2>Tunnels <span class="err" id="err-tunnels"></span></h2>
+      <input class="filter" data-target="tunnels" placeholder="filter">
+      <table id="tunnels"><thead></thead><tbody></tbody></table>
+
+      <h2>Routes <span class="err" id="err-routes"></span></h2>
+      <input class="filter" data-target="routes" placeholder="filter">
+      <table id="routes"><thead></thead><tbody></tbody></table>
+
+      <h2>DNS Resolvers <span class="err" id="err-dns"></span></h2>
+      <input class="filter" data-target="dns" placeholder="filter">
+      <table id="dns"><thead></thead><tbody></tbody></table>
+
+      <h2>Services <span class="err" id="err-services"></span></h2>
+      <input class="filter" data-target="services" placeholder="filter">
+      <table id="services"><thead></thead><tbody></tbody></table>
+    </section>
+
+    <section id="tab-sockets" class="tab">
+      <p class="muted">Manual refresh only. Requires root.</p>
+      <button id="load-sockets">load sockets</button>
+      <input class="filter" data-target="sockets" placeholder="filter">
+      <table id="sockets"><thead></thead><tbody></tbody></table>
+    </section>
+
+    <section id="tab-throughput" class="tab">
+      <p class="muted">One nettop sample. Requires root.</p>
+      <button id="load-throughput">load throughput</button>
+      <input class="filter" data-target="throughput" placeholder="filter">
+      <table id="throughput"><thead></thead><tbody></tbody></table>
+    </section>
+
+    <section id="tab-pf" class="tab">
+      <p class="muted">Packet filter rules and anchors. Requires root.</p>
+      <button id="load-pf">load pf</button>
+      <h3>Anchors</h3>
+      <pre id="pf-anchors"></pre>
+      <h3>Rules</h3>
+      <pre id="pf-rules"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <span class="muted">Verdict is IP-layer only. Application-layer tools can override the kernel's choice.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

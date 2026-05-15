@@ -1,0 +1,10 @@
+set debug.skip 0
+set fingerprints 0
+set ruleset-optimization basic
+No ALTQ support in kernel
+ALTQ related functions disabled
+scrub-anchor "com.apple/*" all fragment reassemble
+anchor "com.apple/*" all
+anchor "littlesnitch" all
+pass quick on lo0 all flags S/SA keep state
+block return on en0 inet proto tcp from any to any port = 22

@@ -1,0 +1,17 @@
+TIMEOUTS:
+tcp.first             120s
+tcp.opening            30s
+
+ANCHORS:
+com.apple/250.PPPNetworkCategoryPolicy
+com.apple/200.AOVPNAgentScopedRules
+littlesnitch
+com.zscaler/100.zscaler
+
+RULES:
+pass quick on lo0 all flags S/SA keep state
+
+STATES:
+
+INFO:
+Status: Enabled

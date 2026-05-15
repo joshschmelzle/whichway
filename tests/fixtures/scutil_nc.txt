@@ -1,0 +1,4 @@
+Available network connection services in the current set (*=enabled):
+* (Connected)      21722756-EB75-41FA-A5B6-8A3D14544A35 VPN (com.axissecurity.client) "axis"                           [VPN:com.axissecurity.client]
+* (Disconnected)   F4092AEF-E4C0-47B4-8508-E81F3B477F8E PPP --> Chromatic - Player 01 "Chromatic - Player 01"          [PPP:Modem]
+* (Disconnected)   DD19EAE4-62AC-4FDF-B8A4-F535F9DB4D12 VPN (io.tailscale.ipn.macsys) "Tailscale"                      [VPN:io.tailscale.ipn.macsys]

@@ -1,0 +1,7 @@
+COMMAND     PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+launchd       1   root   33u  IPv6 0x1234567890abcdef      0t0  TCP *:631 (LISTEN)
+launchd       1   root   34u  IPv4 0x1234567890abcde0      0t0  TCP *:631 (LISTEN)
+mDNSResponder 461 _mdnsresponder 13u IPv4 0xabcdef00      0t0  UDP *:5353
+firefox     817   alice 79u  IPv4 0xfeedface              0t0  TCP 192.168.6.204:50000->1.2.3.4:443 (ESTABLISHED)
+firefox     817   alice 80u  IPv6 0xdeadbeef              0t0  TCP [::1]:50001->[::1]:443 (ESTABLISHED)
+ssh        9999   bob   3u   IPv4 0x55555555              0t0  TCP 100.65.0.1:55000->100.100.1.2:22 (ESTABLISHED)

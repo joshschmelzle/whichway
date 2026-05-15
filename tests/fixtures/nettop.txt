@@ -1,0 +1,40 @@
+                                                                                     interface        bytes_in       bytes_out
+launchd.1                                                                                                    0               0
+syslogd.394                                                                                                  0          105367
+apsd.400                                                                                                614599         1948904
+nesessionmanage.408                                                                                          0               0
+kdc.412                                                                                                      0               0
+mDNSResponder.461                                                                                      1498396          248922
+airportd.473                                                                                                 0               0
+zerotier-one.580                                                                                        158508          554296
+agentd.581                                                                                             1848556             300
+rapportd.776                                                                                                 0               0
+identityservice.784                                                                                       6243            2485
+homed.789                                                                                                    0               0
+Microsoft Outlo.793                                                                                     808991          695717
+sharingd.798                                                                                                 0               0
+wifip2pd.803                                                                                                 0               0
+firefox.817                                                                                             321688          105007
+Telegram.819                                                                                           2513846          107595
+Dia.828                                                                                                 129860            6264
+ARDAgent.830                                                                                                 0               0
+ControlCenter.965                                                                                            0               0
+netbiosd.1011                                                                                           134312            4968
+Signal Helper (.1069                                                                                    231681           95930
+Browser Helper.1071                                                                                      90040          561557
+java.1109                                                                                                    0               0
+Google Chrome H.1132                                                                                  17611507         1063785
+Slack Helper.1239                                                                                      2508935          111457
+com.apple.WebKi.1297                                                                                    143619          340361
+agent-server.1409                                                                                            0               0
+TechSmithAgent.1809                                                                                          0               0
+OneDrive.1841                                                                                            14776            4297
+Okta Verify.1851                                                                                             0               0
+Axis Security C.1857                                                                                  29844813         5528968
+refine-server.1859                                                                                           0               0
+Axis Client.1885                                                                                       2007384         1117312
+com.axissecurit.2195                                                                                  19981051        40755440
+SecureCRT.4720                                                                                          122400           24700
+MSTeams.5484                                                                                             33891           24912
+Microsoft Teams.5529                                                                                   1425445          145950
+opencode.45301                                                                                         1199047         2295740
